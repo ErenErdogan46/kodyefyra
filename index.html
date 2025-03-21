@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Κοdyefyra - Bridging Cultures with Code</title>
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script defer src="assets/script.js"></script>
 </head>
 <body>
   <header>
-    <img src="assets/logo.png" alt="Kodyefyra Logo" class="logo">
+    <img src="assets/logo.png" alt="Kodyefyra Logo" style="height:80px;" />
     <nav>
-      <a href="index.html">Home</a>
-      <a href="pages/algorithms.html">Algorithms</a>
-      <a href="pages/c_programming.html">C Programming</a>
+      <a href="pages/algorithms.html" data-lang="en" data-tr="Algoritmalar" data-el="Αλγόριθμοι">Algorithms</a>
+      <a href="pages/c_programming.html" data-lang="en" data-tr="C Programlama" data-el="Γλώσσα C">C Programming</a>
+      <select id="language">
+        <option value="en">English</option>
+        <option value="tr">Türkçe</option>
+        <option value="el">Ελληνικά</option>
+      </select>
     </nav>
   </header>
 
   <section>
-    <h1>Welcome to Κοdyefyra!</h1>
-    <p>Bridging cultures through coding. Our free, online program connects students from Turkey, Greece, and Cyprus.</p>
-    <a href="https://discord.gg/example" class="button">Join Our Discord</a>
+    <h2 data-lang="en" data-tr="Κοdyefyra'ya Hoş Geldiniz!" data-el="Καλώς ήρθατε στο Κοdyefyra!">Welcome to Κοdyefyra!</h2>
+    <p data-lang="en" data-tr="Türkiye, Yunanistan ve Kıbrıs'tan öğrencileri kodlama eğitimi için bir araya getiriyoruz." data-el="Συνδέουμε μαθητές από Τουρκία, Ελλάδα και Κύπρο για εκπαίδευση στον προγραμματισμό.">
+      We bring together students from Turkey, Greece, and Cyprus for coding education.
+    </p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Κοdyefyra. Bridging Cultures with Code.</p>
+    <p>&copy; 2025 Κοdyefyra</p>
   </footer>
 </body>
 </html>
