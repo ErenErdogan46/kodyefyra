@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const languageSelector = document.getElementById("language");
-  const elements = document.querySelectorAll("[data-lang]");
+  const elements = document.querySelectorAll("[data-en]");
 
+  // LocalStorage'dan veya varsayılan dili al
   const savedLanguage = localStorage.getItem("language") || "en";
   languageSelector.value = savedLanguage;
   changeLanguage(savedLanguage);
@@ -14,7 +15,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function changeLanguage(lang) {
     elements.forEach((element) => {
-      element.innerHTML = element.dataset[lang];
+      if (element.dataset[lang]) {
+        element.innerHTML = element.dataset[lang];
+      } else {
+        console.warn("Dil bulunamadı:", lang, element);
+      }
     });
   }
 });
