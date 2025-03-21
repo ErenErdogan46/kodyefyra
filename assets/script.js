@@ -1,25 +1,20 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const languageSelector = document.getElementById("language");
-  const elements = document.querySelectorAll("[data-en]");
+document.addEventListener("DOMContentLoaded", function() {
+    const langSelect = document.getElementById("language");
+    const elements = document.querySelectorAll("[data-en]");
 
-  // LocalStorage'dan veya varsayılan dili al
-  const savedLanguage = localStorage.getItem("language") || "en";
-  languageSelector.value = savedLanguage;
-  changeLanguage(savedLanguage);
+    function updateLanguage(lang) {
+        elements.forEach(el => {
+            el.textContent = el.getAttribute(`data-${lang}`) || "N/A";
+        });
+    }
 
-  languageSelector.addEventListener("change", function () {
-    const selectedLanguage = this.value;
-    localStorage.setItem("language", selectedLanguage);
-    changeLanguage(selectedLanguage);
-  });
-
-  function changeLanguage(lang) {
-    elements.forEach((element) => {
-      if (element.dataset[lang]) {
-        element.innerHTML = element.dataset[lang];
-      } else {
-        console.warn("Dil bulunamadı:", lang, element);
-      }
+    langSelect.addEventListener("change", function() {
+        updateLanguage(this.value);
+        localStorage.setItem("selectedLanguage", this.value);
     });
-  }
+
+    // Sayfa yüklenince önceki dil ayarını koru
+    const savedLang = localStorage.getItem("selectedLanguage") || "en";
+    langSelect.value = savedLang;
+    updateLanguage(savedLang);
 });
