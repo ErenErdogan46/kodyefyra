@@ -26,10 +26,30 @@
         <p data-en="We are going to publish lecture notes here too." 
            data-tr="Burada ders notlarını da yayınlayacağız." 
            data-el="Θα δημοσιεύσουμε σημειώσεις διαλέξεων εδώ επίσης."></p>
+        
+        <a href="basic_io_en.html" data-en="Basic I/O" style="display:none;">Basic I/O</a>
+        <a href="basic_io_tr.html" data-tr="Temel Giriş/Çıkış" style="display:none;">Temel Giriş/Çıkış</a>
+        <a href="basic_io_el.html" data-el="Βασικές Είσοδοι/Έξοδοι" style="display:none;">Βασικές Είσοδοι/Έξοδοι</a>
     </main>
 
     <footer>
         <p>© 2025 Kodyefyra</p>
     </footer>
+
+    <script>
+        const languageSelector = document.getElementById('language');
+        const links = document.querySelectorAll('main a');
+
+        function updateLanguageDisplay() {
+            const selectedLang = languageSelector.value;
+            links.forEach(link => {
+                const lang = link.getAttribute('data-en') ? 'en' : link.getAttribute('data-tr') ? 'tr' : 'el';
+                link.style.display = lang === selectedLang ? 'inline' : 'none';
+            });
+        }
+
+        languageSelector.addEventListener('change', updateLanguageDisplay);
+        updateLanguageDisplay();
+    </script>
 </body>
 </html>
